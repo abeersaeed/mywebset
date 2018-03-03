@@ -47,7 +47,6 @@ AppAsset::register($this);
 	</div>	
 </div>	
 <!-- footer-->	
-
 <?php $this->endBody() ?>
 <script type="text/javascript" defer>
 	jQuery(document).ready(function($) {

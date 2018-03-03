@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\widgets\ActiveForm;
 
 /**
  * Site controller
@@ -72,11 +73,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->isGuest){
-            return $this->redirect(['site/login']);
-        }
-
-        return $this->render('theme_test');
+        return $this->render('theme');
     }
 
     /**
@@ -90,6 +87,24 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
+        $model = new LoginForm();
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            echo json_encode(ActiveForm::validate($model));
+            \Yii::$app->end();
+        } elseif ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            // return $this->redirect([$url]);
+        }
+    }
+
+    /**
+     * Logs in a user.
+     *
+     * @return mixed
+     */
+    public function actionLoginAjax()
+    {
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
@@ -218,6 +233,6 @@ class SiteController extends Controller
     }
 
     public function actionThemetest(){
-        return $this->render('theme_test');
+        return $this->render('theme');
     }
 }
