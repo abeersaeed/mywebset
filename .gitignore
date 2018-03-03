@@ -37,3 +37,6 @@ phpunit.phar
 # uploads
 /.uploads
 uploads/
+
+vendor/
+assets/
