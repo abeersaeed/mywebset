@@ -29,7 +29,7 @@ class SiteController extends Controller
                 'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup','themetest'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -72,7 +72,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        if(Yii::$app->user->isGuest){
+            return $this->redirect(['site/login']);
+        }
+
+        return $this->render('theme_test');
     }
 
     /**
@@ -211,5 +215,9 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionThemetest(){
+        return $this->render('theme_test');
     }
 }
