@@ -16,11 +16,9 @@
 					<li class="m_nav_item menu__item menu__item--current" id="m_nav_item_1"> <a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>" class="menu__link"><i class="menu-icon fa fa-home" aria-hidden="true"></i> Home </a></li>
 					<li class="m_nav_item menu__item" id="moble_nav_item_2"> <a href="#about" class="menu__link"><i class="menu-icon fa fa-info-circle" aria-hidden="true"></i>About Us </a> </li>
 					<li class="m_nav_item menu__item" id="moble_nav_item_3"> <a href="#services" class="menu__link"><i class="menu-icon fa fa-cog" aria-hidden="true"></i>Services</a> </li>
-					<li class="m_nav_item menu__item" id="moble_nav_item_4"> <a href="#team" class="menu__link"><i class="menu-icon fa fa-users" aria-hidden="true"></i>Team</a> </li>
-					<li class="m_nav_item menu__item" id="moble_nav_item_5"> <a href="#grid-gallery" class="menu__link"><i class="menu-icon fa fa-file-image-o" aria-hidden="true"></i>lab</a> </li>
 					<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="#contact" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Contact </a> </li>
 					<?php if(Yii::$app->user->isGuest){ ?>
-						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="<?php echo Yii::$app->urlManager->CreateUrl('site/login'); ?>" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Login </a> </li>
+						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="javascript:void(0);" class="menu__link" data-toggle="modal" data-target="#myModalLogin"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Login </a> </li>
 					<?php }else{ ?>
 						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a id="logout" href="javascript:void(0);" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Logout </a> </li>
 						<?php 
@@ -37,9 +35,9 @@
 							"); 
 						?>
 					<?php } ?>
-					
 				</ul>
 			</nav>
 		</div>
 	</div>
 </div>
+<?php echo $this->render('login_popup'); ?>

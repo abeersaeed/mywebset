@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         // "js/jquery-1.11.1.min.js",
-        // "js/bootstrap.js",
+        "js/bootstrap.js",
         "js/modernizr.custom.js",
         "js/modernizr.custom.79639.js",
         "js/move-top.js",
