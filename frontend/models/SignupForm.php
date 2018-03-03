@@ -12,6 +12,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $role;
 
 
     /**
@@ -33,6 +34,7 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['role', 'required']
         ];
     }
 
@@ -42,7 +44,7 @@ class SignupForm extends Model
      * @return User|null the saved model or null if saving fails
      */
     public function signup()
-    {
+    {   
         if (!$this->validate()) {
             return null;
         }
@@ -50,8 +52,10 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
+        $user->type  = $this->role;
         $user->setPassword($this->password);
         $user->generateAuthKey();
+        $user->save();
         
         return $user->save() ? $user : null;
     }

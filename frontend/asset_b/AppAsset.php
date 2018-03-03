@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         "//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i",
         "css/font-awesome.css",
         "css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css",
     ];
     public $js = [
         // "js/jquery-1.11.1.min.js",
@@ -42,6 +43,7 @@ class AppAsset extends AssetBundle
         "js/masonry.pkgd.min.js",
         "js/classie.js",
         "js/cbpGridGallery.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',

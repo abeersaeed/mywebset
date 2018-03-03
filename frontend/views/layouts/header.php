@@ -18,9 +18,9 @@
 					<li class="m_nav_item menu__item" id="moble_nav_item_3"> <a href="#services" class="menu__link"><i class="menu-icon fa fa-cog" aria-hidden="true"></i>Services</a> </li>
 					<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="#contact" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Contact </a> </li>
 					<?php if(Yii::$app->user->isGuest){ ?>
-						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="javascript:void(0);" class="menu__link" data-toggle="modal" data-target="#myModalLogin"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Login </a> </li>
+						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="javascript:void(0);" class="menu__link login-btn" data-toggle="modal" data-target="#myModalLogin"><i class="menu-icon fa fa-user" aria-hidden="true"></i> Login </a> </li>
 					<?php }else{ ?>
-						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a id="logout" href="javascript:void(0);" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> Logout </a> </li>
+						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a id="logout" href="javascript:void(0);" class="menu__link"><i class="menu-icon fa fa-user" aria-hidden="true"></i> Logout </a> </li>
 						<?php 
 							$this->registerJs("
 								$(document).on('click','#logout',function(){

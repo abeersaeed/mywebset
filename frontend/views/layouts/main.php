@@ -47,6 +47,7 @@ AppAsset::register($this);
 	</div>	
 </div>	
 <!-- footer-->	
+<?php echo $this->render('profile_complete_popup'); ?>
 <?php $this->endBody() ?>
 <script type="text/javascript" defer>
 	jQuery(document).ready(function($) {

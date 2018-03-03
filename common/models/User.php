@@ -246,4 +246,12 @@ class User extends ActiveRecord implements IdentityInterface
                 break;
         }
     }
+
+    public static function getFrontendTypesArray(){
+
+        return [
+            Self::TYPE_PATIENT => 'Patient',
+            Self::TYPE_DOCTOR  => 'Doctor'
+        ];
+    }
 }
