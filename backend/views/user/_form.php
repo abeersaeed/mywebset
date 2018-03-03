@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($user, 'first_name')->textInput() ?>
     <?= $form->field($user, 'last_name')->textInput() ?>
     <?= $form->field($model, 'email')->textInput() ?>
-    
+    <?= $form->field($model, 'password_hash')->passwordInput() ?>
     <?= $form->field($model, 'type')->dropDownList(
     	[
     		'1' => 'Admin',

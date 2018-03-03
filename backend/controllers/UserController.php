@@ -69,6 +69,8 @@ class UserController extends Controller
         $user = new UserProfile();
 
         if ($model->load(Yii::$app->request->post()) && $user->load(Yii::$app->request->post())) {
+                $model->setPassword($model->password_hash);
+                $model->generateAuthKey();
             if($model->save()) {
                 $user->user_id = $model->id;
                 $user->save();
@@ -94,8 +96,16 @@ class UserController extends Controller
         $model = $this->findModel($id);
         $user  = $model->profile;
 
-        if ($model->load(Yii::$app->request->post()) && $user->load(Yii::$app->request->post()) && $model->save() && $user->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $user->load(Yii::$app->request->post())) {
+            if(!empty($model->password_hash)) {
+                $model->setPassword($model->password_hash);
+            } else {
+                $model->password_hash = $password;
+            }
+
+            if($model->save() && $user->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
