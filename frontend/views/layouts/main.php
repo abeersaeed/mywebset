@@ -43,7 +43,7 @@ AppAsset::register($this);
 	</div> -->
 	<div class="copy-right text-center">
 	<span class="agileits-copy fa fa-plus" aria-hidden="true"></span>
-	<p>&copy; 2017 Medicate. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+	<p>&copy; 2018 myWebSet. All rights reserved </p>
 	</div>	
 </div>	
 <!-- footer-->	
