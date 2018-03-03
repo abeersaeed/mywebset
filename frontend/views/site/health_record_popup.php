@@ -36,6 +36,7 @@ $model = new PatientDetails;
                         </div>
 
                         <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'submit-button']) ?>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <?php ActiveForm::end(); ?>
                 </div>
             </div>
