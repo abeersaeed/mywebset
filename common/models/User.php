@@ -30,7 +30,6 @@ class User extends ActiveRecord implements IdentityInterface
     const TYPE_PATIENT = 2;
     const TYPE_DOCTOR = 3;
 
-
     /**
      * {@inheritdoc}
      */
@@ -57,7 +56,19 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['username', 'email', 'status', 'type', 'password_hash'], 'required'],
+            [['email'], 'email'],
+            ['email', 'trim'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfile()
+    {
+        return $this->hasOne(UserProfile::className(), ['user_id' => 'id']);
     }
 
     /**
@@ -189,5 +200,50 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getType()
+    {
+        switch ($this->type) {
+            case '1':
+                return "Administrator";
+                break;
+            case '2':
+                return "Patient";
+                break;
+            case '3':
+                return "Doctor";
+                break;
+        }
+    }
+
+    public function getStatus()
+    {
+        switch ($this->status) {
+            case '0':
+                return "Deactive";
+                break;
+            case '10':
+                return "Active";
+                break;
+        }
+    }
+
+    public static function getCounts($choice)
+    {
+        switch ($choice) {
+            case 'doctors':
+                return self::find()->where("type = 3")->count();
+                break;
+            case 'all':
+                return self::find()->count();
+                break;
+            case 'patients':
+                return self::find()->where("type = 2")->count();
+                break;
+            case 'admins':
+                return self::find()->where("type = 1")->count();
+                break;
+        }
     }
 }
