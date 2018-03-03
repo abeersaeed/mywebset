@@ -12,6 +12,11 @@ use Yii;
  * @property string $first_name
  * @property string $last_name
  * @property string $picture
+ * @property int $gender
+ * @property string $dob
+ * @property string $country
+ * @property string $city
+ * @property string $zip_code
  *
  * @property User $user
  */
@@ -33,7 +38,8 @@ class UserProfile extends \yii\db\ActiveRecord
         return [
             [['user_id', 'first_name', 'last_name'], 'required'],
             [['user_id'], 'integer'],
-            [['first_name', 'last_name', 'picture'], 'string', 'max' => 256],
+            [['first_name', 'last_name', 'picture', 'dob', 'country', 'city', 'zip_code'], 'string', 'max' => 256],
+            [['gender'], 'string', 'max' => 3],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -49,6 +55,11 @@ class UserProfile extends \yii\db\ActiveRecord
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
             'picture' => 'Picture',
+            'gender' => 'Gender',
+            'dob' => 'Dob',
+            'country' => 'Country',
+            'city' => 'City',
+            'zip_code' => 'Zip Code',
         ];
     }
 
