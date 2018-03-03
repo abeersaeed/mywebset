@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="w3_agile_logo">
-		<h1><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>"><i class="agileits-logo fa fa-plus" aria-hidden="true"></i>Medicate</a></h1>
+		<h1><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>"><i class="agileits-logo fa fa-plus" aria-hidden="true"></i>MWS</a></h1>
 	</div>
 	<div class="agileits_w3layouts_nav">
 		<div id="toggle_m_nav">
