@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         "css/font-awesome.css",
         "css/custom.css",
         "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css",
+        '//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css',
     ];
     public $js = [
         // "js/jquery-1.11.1.min.js",
@@ -43,7 +44,8 @@ class AppAsset extends AssetBundle
         "js/masonry.pkgd.min.js",
         "js/classie.js",
         "js/cbpGridGallery.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"
+        "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js",
+        '//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -1,3 +1,6 @@
+<?php 
+use common\models\User;
+?>
 <div class="container">
 	<div class="w3_agile_logo">
 		<h1><a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>"><i class="agileits-logo fa fa-plus" aria-hidden="true"></i>MWS</a></h1>
@@ -20,6 +23,10 @@
 					<?php if(Yii::$app->user->isGuest){ ?>
 						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="javascript:void(0);" class="menu__link login-btn" data-toggle="modal" data-target="#myModalLogin"><i class="menu-icon fa fa-user" aria-hidden="true"></i> Login </a> </li>
 					<?php }else{ ?>
+						<?php if(Yii::$app->user->identity->type == User::TYPE_PATIENT){ ?>
+							<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="<?php echo Yii::$app->urlManager->createUrl(['site/patient-profile']); ?>" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> My Profile </a> 
+							</li>
+						<?php } ?>
 						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a id="logout" href="javascript:void(0);" class="menu__link"><i class="menu-icon fa fa-user" aria-hidden="true"></i> Logout </a> </li>
 						<?php 
 							$this->registerJs("

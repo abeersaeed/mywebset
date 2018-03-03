@@ -14,6 +14,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\widgets\ActiveForm;
 use common\models\UserProfile;
+use common\models\User;
+use common\models\PatientDetails;
 
 /**
  * Site controller
@@ -210,6 +212,41 @@ class SiteController extends Controller
         // return $this->render('signup', [
         //     'model' => $model,
         // ]);
+    }
+
+    public function actionPatientProfile(){
+
+        $user = Yii::$app->user;
+
+        if(empty($user)){
+            return $this->redirect(['index']);
+        }
+
+        if($user->identity->type != User::TYPE_PATIENT){
+            return $this->redirect(['index']);
+        }
+
+        $healthRecords = PatientDetails::find()->where(['user_id' => $user->id])->all();
+
+        return  $this->render("patient_profile",[
+            'healthRecords' => $healthRecords
+        ]);
+    }
+
+    public function actionSetPatientDetails(){
+
+        $model = new PatientDetails();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            echo json_encode(ActiveForm::validate($model));
+            \Yii::$app->end();
+        }elseif ($model->load(Yii::$app->request->post())) {
+                
+                $model->user_id = Yii::$app->user->id;
+                $model->save();
+
+                return $this->redirect(['site/patient-profile#health?tab=1']);
+        }
     }
 
     /**

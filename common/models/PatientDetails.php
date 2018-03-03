@@ -32,7 +32,7 @@ class PatientDetails extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'user_id'], 'required'],
+            [['user_id'], 'required'],
             [['id', 'user_id'], 'integer'],
             [['height', 'weight', 'bmi', 'date'], 'string', 'max' => 256],
             [['id'], 'unique'],
