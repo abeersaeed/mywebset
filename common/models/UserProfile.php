@@ -22,6 +22,8 @@ use Yii;
  */
 class UserProfile extends \yii\db\ActiveRecord
 {
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
     /**
      * @inheritdoc
      */
@@ -50,16 +52,16 @@ class UserProfile extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'User ID',
-            'first_name' => 'First Name',
+            'id'        => 'ID',
+            'user_id'   => 'User ID',
+            'first_name'=> 'First Name',
             'last_name' => 'Last Name',
-            'picture' => 'Picture',
-            'gender' => 'Gender',
-            'dob' => 'Dob',
-            'country' => 'Country',
-            'city' => 'City',
-            'zip_code' => 'Zip Code',
+            'picture'   => 'Picture',
+            'gender'    => 'Gender',
+            'dob'       => 'Date of birth',
+            'country'   => 'Country',
+            'city'      => 'City',
+            'zip_code'  => 'Zip Code',
         ];
     }
 
@@ -69,5 +71,13 @@ class UserProfile extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public static function getGenderArray(){
+
+        return [
+            Self::GENDER_MALE   => 'Male',
+            Self::GENDER_FEMALE => 'Female'
+        ];
     }
 }

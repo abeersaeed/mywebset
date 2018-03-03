@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\widgets\ActiveForm;
+use common\models\UserProfile;
 
 /**
  * Site controller
@@ -181,6 +182,29 @@ class SiteController extends Controller
                     return $this->goHome();
                 }
             }
+        }
+
+        // return $this->render('signup', [
+        //     'model' => $model,
+        // ]);
+    }
+
+    /**
+     * Get profile information.
+     *
+     * @return mixed
+     */
+    public function actionGetProfileInformation()
+    {
+        $model = new UserProfile();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            echo json_encode(ActiveForm::validate($model));
+            \Yii::$app->end();
+        }elseif ($model->load(Yii::$app->request->post())) {
+                $model->user_id = Yii::$app->user->id;
+                $model->save();
+                return $this->goHome();
         }
 
         // return $this->render('signup', [
