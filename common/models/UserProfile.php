@@ -12,6 +12,8 @@ use Yii;
  * @property string $first_name
  * @property string $last_name
  * @property string $picture
+ *
+ * @property User $user
  */
 class UserProfile extends \yii\db\ActiveRecord
 {
@@ -32,6 +34,7 @@ class UserProfile extends \yii\db\ActiveRecord
             [['user_id', 'first_name', 'last_name'], 'required'],
             [['user_id'], 'integer'],
             [['first_name', 'last_name', 'picture'], 'string', 'max' => 256],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -47,5 +50,13 @@ class UserProfile extends \yii\db\ActiveRecord
             'last_name' => 'Last Name',
             'picture' => 'Picture',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

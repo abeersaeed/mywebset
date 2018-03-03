@@ -13,6 +13,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/custom.css',
+        '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
     ];
     public $js = [
     ];
