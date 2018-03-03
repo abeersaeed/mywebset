@@ -35,7 +35,7 @@ $signupModel = new SignupForm;
 
                         <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                         <span class="pull-right"> 
-                          <a data-toggle="modal" data-target="#myModalForgotpassword" href="javascript:void(0);" class="forget-password-btn">Forgot password</a> | <a class="signup-btn" data-toggle="modal" data-target="#myModalSignup" href="javascript:void(0);">Signup</a>
+                        <a class="signup-btn" data-toggle="modal" data-target="#myModalSignup" href="javascript:void(0);">Signup</a>
                         </span>
                     <?php ActiveForm::end(); ?>
                 </div>
@@ -75,7 +75,7 @@ $signupModel = new SignupForm;
                         <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
 
                         <span class="pull-right"> 
-                          <a data-toggle="modal" data-target="#myModalForgotpassword" href="javascript:void(0);" class="forget-password-btn">Forgot password</a> | <a class="login-btn" data-toggle="modal" data-target="#myModalLogin" href="javascript:void(0);">Login</a>
+                          <a class="login-btn" data-toggle="modal" data-target="#myModalLogin" href="javascript:void(0);">Login</a>
                         </span>
                     <?php ActiveForm::end(); ?>
                 </div>
