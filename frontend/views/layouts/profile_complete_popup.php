@@ -52,7 +52,7 @@ if(!Yii::$app->user->isGuest){
 
                         <?= $form->field($model, 'zip_code')->textInput() ?>
 
-                        <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                        <?= Html::submitButton('Save', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                     <?php ActiveForm::end(); ?>
                 </div>
             </div>

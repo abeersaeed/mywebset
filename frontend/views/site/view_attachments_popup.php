@@ -17,54 +17,6 @@ use common\models\PatientDetails;
                 <div class="panel-heading"><h3 class="panel-title"><strong>Report Attachments</strong></h3></div>
                 <div class="panel-body">
                     <div class="col-md-12" id="file-holder-box">
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
-                        <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
-                            <a href="">
-                                <i class="fas fa-file fa-3x"></i>
-                                <p>File 1</p>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -78,6 +78,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->isGuest){
+            if(Yii::$app->user->identity->type == User::TYPE_PATIENT){
+                $this->redirect(['patient-profile']);
+            }
+        }
+
         return $this->render('theme');
     }
 
