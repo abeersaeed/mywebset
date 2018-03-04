@@ -42,20 +42,20 @@ AppAsset::register($this);
 					   <ul class="rslides callbacks callbacks1" id="slider4">
 						    <li>	
 							    <div class="banner_text_w3layouts">
-									<h3>Nam tellus nec enim tempus</h3>
-									<p>Nam tellus nec enim tempus</p>
+									<h3>Consult Doctors</h3>
+									<p>Live and online</p>
 							    </div>
 						    </li>
 							<li>	
 								<div class="banner_text_w3layouts">
-									<h3>Tellus nec enim tempus Nam </h3>
-									<p>Nam tellus nec enim tempus</p>
+									<h3>Consult Doctors</h3>
+									<p>Live and online</p>
 								</div>
 							</li>
 							<li>							
 								<div class="banner_text_w3layouts">
-									<h3>Nam tellus nec enim tempus </h3>
-									<p>Nam tellus nec enim tempus</p>
+									<h3>Consult Doctors</h3>
+									<p>Live and online</p>
 								</div>
 						    </li>
 				    	</ul>
