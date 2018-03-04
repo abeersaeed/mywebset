@@ -80,7 +80,10 @@ class SiteController extends Controller
     {
         if(!Yii::$app->user->isGuest){
             if(Yii::$app->user->identity->type == User::TYPE_PATIENT){
-                $this->redirect(['patient-profile']);
+                return $this->redirect(['patient-profile']);
+            }
+            if(Yii::$app->user->identity->type == User::TYPE_DOCTOR){
+                return $this->redirect(['doctor-profile']);
             }
         }
 
@@ -269,6 +272,27 @@ class SiteController extends Controller
 
         return $this->render("doctor_profile",[
             'patients' => $patients
+        ]);
+    }
+
+    public function actionPatientRecords(){
+
+        $user = Yii::$app->user;
+
+        if(empty($user)){
+            return $this->redirect(['index']);
+        }
+
+        if($user->identity->type != User::TYPE_DOCTOR){
+            return $this->redirect(['index']);
+        }        
+
+        $healthRecords  = PatientDetails::find()->all();
+        $patientRecords = PatientRecords::find()->all();
+
+        return  $this->render("doctor_review_patient_profile",[
+            'healthRecords'  => $healthRecords,
+            'patientRecords' => $patientRecords
         ]);
     }
 

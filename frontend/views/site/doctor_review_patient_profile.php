@@ -37,32 +37,59 @@
 }
 </style>
 
+<div class="row" style="margin-top:5%;">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<a href="<?php echo Yii::$app->urlManager->createUrl(['site/index']); ?>">Patients</a>
+		>
+		<a href="javascript:void(0);">View Records</a>
+	</div>
+</div>
 <div class="row" style="margin-top:5%;margin-bottom: 5%;">
 	<div class="col-md-1">
 	</div>
 	<div class="col-md-10">
 		<!-- Tab links -->
 		<div class="tab">
-			<button id="btn-health" class="tablinks custom-tabs" data-tab="health">Patients</button>
+			<button id="btn-health" class="tablinks custom-tabs" data-tab="health">Health Information</button>
+			<button id="btn-reports" class="tablinks custom-tabs" data-tab="reports">Reports</button>
 		</div>
 
 		<!-- Tab content -->
 		<div id="health" class="tabcontent">
-		  	<h3>Patients</h3>
+		  	<h3>Health information</h3>
 		  	<div class="row">
-			  	<table id="health-table" class="table table-striped table-bordered">
+			  	<table id="health-table" class="table table-striped table-bordered table-hover">
 			  	<tr>
-			  		<th>Name</th><th></th>
+			  		<th>Height</th><th>Weight</th><th>BMI</th><th>Date</th><th></th>
 			  	</tr>
-			  	<?php if(!empty($patients)){ ?>
-			  			<?php foreach($patients as $key => $value){ ?>
-			  				<?php echo "<tr>"."<td>".$value->getFullName()."</td>"."<td>"."<a href='".Yii::$app->urlManager->createUrl(['site/patient-records'])."' class='btn btn-primary'>View Records</a>"."</td>"."</tr>"; ?>
+			  	<?php if(!empty($healthRecords)){ ?>
+			  			<?php foreach($healthRecords as $key => $value){ ?>
+			  				<?php echo "<tr>"."<td>".$value->height."</td>"."<td>".$value->weight."</td>"."<td>".$value->bmi."</td>"."<td>".$value->date."</td>"."<td>"."</td>"."</tr>"; ?>
 			  			<?php } ?>
 			  	<?php }else{ ?>
 			  		<tr><td>No records found.</td></tr>
 			  	<?php } ?>
 			  	</table>
 			</div>
+		</div>
+
+		<div id="reports" class="tabcontent">
+		  	<h3>Patient Reports</h3>
+		  	<div class="row">
+			  	<table id="health-table" class="table table-striped table-bordered table-hover">
+			  	<tr>
+			  		<th>Test Name</th><th>Test Date</th><th></th><th></th><th></th>
+			  	</tr>
+			  	<?php if(!empty($patientRecords)){ ?>
+			  			<?php foreach($patientRecords as $key => $value){ ?>
+			  				<?php echo "<tr>"."<td>".$value->test_name."</td>"."<td>".$value->test_date."</td>"."<td>"."<a class='btn btn-primary btn-xs view-attachments'>View attachments</a>"."</td>"."<td>"."</td>"."<td>"."</td>"."</tr>"; ?>
+			  			<?php } ?>
+			  	<?php }else{ ?>
+			  		<tr><td>No records found.</td></tr>
+			  	<?php } ?>
+			  	</table>
+			</div> 
 		</div>
 	</div>
 </div>
