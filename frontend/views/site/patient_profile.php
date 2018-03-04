@@ -78,7 +78,7 @@
 			  	</tr>
 			  	<?php if(!empty($patientRecords)){ ?>
 			  			<?php foreach($patientRecords as $key => $value){ ?>
-			  				<?php echo "<tr>"."<td>".$value->test_name."</td>"."<td>".$value->test_date."</td>"."<td>"."</td>"."<td>"."</td>"."<td>"."</td>"."</tr>"; ?>
+			  				<?php echo "<tr>"."<td>".$value->test_name."</td>"."<td>".$value->test_date."</td>"."<td>"."<a class='btn btn-primary btn-xs view-attachments'>View attachments</a>"."</td>"."<td>"."</td>"."<td>"."</td>"."</tr>"; ?>
 			  			<?php } ?>
 			  	<?php }else{ ?>
 			  		<tr><td>No records found.</td></tr>
@@ -124,6 +124,19 @@
 		$(document).ready(function(){
 		    $("#health-table").DataTable();
 		});
+
+		$(document).on("click",".view-attachments",function(){
+			$.ajax({
+				url: "'.Yii::$app->urlManager->createUrl("site/fetch-attachments").'",
+				type: "post",
+				data: {},
+				success: function(data){
+					$("#file-holder-box").html(data);
+					$("#ViewAttachmentsModal").modal("show");
+				}
+			});
+		});
 	');
 ?>
 <?php echo $this->render('health_record_popup'); ?>
+<?php echo $this->render('view_attachments_popup'); ?>

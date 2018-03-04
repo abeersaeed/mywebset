@@ -6,3 +6,5 @@ Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 Yii::setAlias('external', dirname(dirname(__DIR__)) . '/external');
 
 Yii::setAlias('external_url','external/frontend_assets');
+Yii::setAlias('uploads_url','uploads/');
+

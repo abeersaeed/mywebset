@@ -17,6 +17,7 @@ use common\models\UserProfile;
 use common\models\User;
 use common\models\PatientDetails;
 use common\models\PatientRecords;
+use common\models\RecordAttachments;
 
 /**
  * Site controller
@@ -302,6 +303,32 @@ class SiteController extends Controller
     }
 
     public function actionThemetest(){
-        return $this->render('theme');
+        print_r(Yii::$app->homeUrl);
+        print_r('--------------');
+        // print_r(Url::base());
+        exit;
+    }
+
+    public function actionFetchAttachments(){
+
+        $recordAttachments = RecordAttachments::find()->all();
+        $recordsHtml = '';
+
+        if(!empty($recordAttachments)){
+            foreach ($recordAttachments as $key => $value) {
+                $recordsHtml .= '
+                    <div class="col-md-4" style="padding-top: 5%;padding-bottom: 5%;">
+                        <a target="_blank" href="'.Yii::$app->homeUrl.Yii::getAlias("@uploads_url")."/".$value->file.'">
+                            <i class="fas fa-file fa-3x"></i>
+                            <p>Report '.($key+1).'</p>
+                        </a>
+                    </div>
+                ';        
+            }
+        }else{
+            $recordsHtml = "No files found.";
+        }
+
+        return $recordsHtml;
     }
 }

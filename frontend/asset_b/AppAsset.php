@@ -45,7 +45,8 @@ class AppAsset extends AssetBundle
         "js/classie.js",
         "js/cbpGridGallery.js",
         "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js",
-        '//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'
+        '//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js',
+        "https://use.fontawesome.com/releases/v5.0.8/js/all.js"
     ];
     public $depends = [
         'yii\web\YiiAsset',
