@@ -243,6 +243,35 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionDoctorProfile(){
+        
+        $user = Yii::$app->user;
+
+        if(empty($user)){
+            return $this->redirect(['index']);
+        }
+
+        if($user->identity->type != User::TYPE_DOCTOR){
+            return $this->redirect(['index']);
+        }        
+
+        $patients = User::find()->where(['type' => User::TYPE_PATIENT])->all();
+        $patientVerify = [];
+        if(!empty($patients)){
+            foreach ($patients as $key => $value) {
+                if(!empty($value->profile)){
+                    $patientVerify[] = $value;
+                }
+            }
+        }
+
+        $patients = $patientVerify;
+
+        return $this->render("doctor_profile",[
+            'patients' => $patients
+        ]);
+    }
+
     public function actionSetPatientDetails(){
 
         $model = new PatientDetails();

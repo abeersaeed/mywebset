@@ -27,6 +27,10 @@ use common\models\User;
 							<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="<?php echo Yii::$app->urlManager->createUrl(['site/patient-profile']); ?>" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> My Profile </a> 
 							</li>
 						<?php } ?>
+						<?php if(Yii::$app->user->identity->type == User::TYPE_DOCTOR){ ?>
+							<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a href="<?php echo Yii::$app->urlManager->createUrl(['site/doctor-profile']); ?>" class="menu__link"><i class="menu-icon fa fa-map-marker" aria-hidden="true"></i> My Profile </a> 
+							</li>
+						<?php } ?>
 						<li class="m_nav_item menu__item" id="moble_nav_item_6"> <a id="logout" href="javascript:void(0);" class="menu__link"><i class="menu-icon fa fa-user" aria-hidden="true"></i> Logout </a> </li>
 						<?php 
 							$this->registerJs("

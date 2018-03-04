@@ -254,4 +254,14 @@ class User extends ActiveRecord implements IdentityInterface
             Self::TYPE_DOCTOR  => 'Doctor'
         ];
     }
+
+    public function getFullName(){
+        $fullname = '';
+
+        if(!empty($this->profile)){
+            $fullname = $this->profile->first_name . ' ' . $this->profile->last_name;
+        }
+
+        return $fullname;
+    }
 }
