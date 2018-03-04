@@ -16,6 +16,7 @@ use yii\widgets\ActiveForm;
 use common\models\UserProfile;
 use common\models\User;
 use common\models\PatientDetails;
+use common\models\PatientRecords;
 
 /**
  * Site controller
@@ -226,10 +227,12 @@ class SiteController extends Controller
             return $this->redirect(['index']);
         }
 
-        $healthRecords = PatientDetails::find()->where(['user_id' => $user->id])->all();
+        $healthRecords  = PatientDetails::find()->where(['user_id' => $user->id])->all();
+        $patientRecords = PatientRecords::find()->all(); 
 
         return  $this->render("patient_profile",[
-            'healthRecords' => $healthRecords
+            'healthRecords'  => $healthRecords,
+            'patientRecords' => $patientRecords
         ]);
     }
 

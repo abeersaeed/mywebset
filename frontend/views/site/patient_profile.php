@@ -70,8 +70,21 @@
 		</div>
 
 		<div id="reports" class="tabcontent">
-		  	<h3>Paris</h3>
-		  	<p>Paris is the capital of France.</p> 
+		  	<h3>Patient Reports</h3>
+		  	<div class="row">
+			  	<table id="health-table" class="table table-striped table-bordered table-hover">
+			  	<tr>
+			  		<th>Test Name</th><th>Test Date</th><th></th><th></th><th></th>
+			  	</tr>
+			  	<?php if(!empty($patientRecords)){ ?>
+			  			<?php foreach($patientRecords as $key => $value){ ?>
+			  				<?php echo "<tr>"."<td>".$value->test_name."</td>"."<td>".$value->test_date."</td>"."<td>"."</td>"."<td>"."</td>"."<td>"."</td>"."</tr>"; ?>
+			  			<?php } ?>
+			  	<?php }else{ ?>
+			  		<tr><td>No records found.</td></tr>
+			  	<?php } ?>
+			  	</table>
+			</div> 
 		</div>
 	</div>
 </div>
